@@ -13,7 +13,7 @@ public interface UserMapper {
     @Select("select * from user")
     List<User> getUsers();
 
-    @Select("select * from user where tel = #{tel}")
+    @Select("select * from user where tel LIKE CONCAT('%', ${tel}, '%')")
     List<User> getUser(String tel);
 
     @Insert("insert into user(userName,avatar,age,tel) values (#{userName},#{avatar},#{age},#{tel})")
