@@ -30,9 +30,14 @@ public class UserController {
         return Result.ok(service.updateUser(user));
     }
 
-    @DeleteMapping("")
-    public Result<User> updateUser(@RequestParam(value = "id") int id){
-        return Result.ok(service.deleteUser(id));
+    @DeleteMapping("/{id}")
+    public Result<Void> deleteUser(@PathVariable(value = "id") int id){
+        int i = service.deleteUser(id);
+        if (i > 0) {
+            return Result.ok("删除用户成功");
+        }else {
+            return Result.fail("用户不存在");
+        }
     }
 
 }

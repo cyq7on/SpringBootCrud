@@ -10,6 +10,9 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
+    @Select("select * from user where id=#{id}")
+    User getUserById(int id);
+
     @Select("select * from user")
     List<User> getUsers();
 
@@ -17,12 +20,12 @@ public interface UserMapper {
     List<User> getUser(String tel);
 
     @Insert("insert into user(userName,avatar,age,tel) values (#{userName},#{avatar},#{age},#{tel})")
-    User addUser(User user);
+    int addUser(User user);
 
     @Update("update user set userName=#{userName},avatar=#{avatar},age=#{age},tel = #{tel} where id=#{id}")
-    User updateUser(User user);
+    int updateUser(User user);
 
     @Delete("delete from user where id=#{id}")
-    User deleteUser(int id);
+    int deleteUser(int id);
 
 }

@@ -29,9 +29,14 @@ public class Result<T>{
     public static <T> Result<T> ok(T data) {
         return ok(data,"成功");
     }
-
+    public static <T> Result<T> ok(String message) {
+        Result<T> result = new Result<>();
+        result.errorCode = 0;
+        result.message = message;
+        return result;
+    }
     public static <T> Result<T> ok(T value,String message) {
-        Result<T> result = new Result<T>();
+        Result<T> result = new Result<>();
         result.errorCode = 0;
         result.data = value;
         result.message = message;
