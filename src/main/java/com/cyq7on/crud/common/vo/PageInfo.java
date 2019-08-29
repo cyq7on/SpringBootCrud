@@ -36,7 +36,7 @@ public class PageInfo<T> implements Serializable {
         if(list == null) {
             return new PageInfo<>();
         }
-        return data(list,list.size());
+        return new PageInfo<>(list);
     }
 
     public static <T> PageInfo<T> data(List<T> list, long count) {
