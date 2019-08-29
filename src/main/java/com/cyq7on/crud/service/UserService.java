@@ -1,14 +1,14 @@
 package com.cyq7on.crud.service;
 
+import com.cyq7on.crud.common.vo.PageInfo;
 import com.cyq7on.crud.entity.User;
 
-import java.util.List;
 
 public interface UserService {
 
     int login(String name, String pwd);
 
-    List<User> getUsers(String tel);
+    PageInfo<User> getUsers(String tel, int pageNo, int pageSize);
 
     User addUser(User user);
 

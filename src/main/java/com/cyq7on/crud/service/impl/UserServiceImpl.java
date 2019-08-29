@@ -1,9 +1,11 @@
 package com.cyq7on.crud.service.impl;
 
+import com.cyq7on.crud.common.vo.PageInfo;
 import com.cyq7on.crud.dao.UserMapper;
 import com.cyq7on.crud.entity.Admin;
 import com.cyq7on.crud.entity.User;
 import com.cyq7on.crud.service.UserService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -29,14 +31,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUsers(String tel) {
-
+    public PageInfo<User> getUsers(String tel, int pageNo, int pageSize) {
+        PageHelper.startPage(pageNo, pageSize);
+        List<User> list;
         if (StringUtils.isEmpty(tel)) {
-            return mapper.getUsers();
+            list =  mapper.getUsers();
         } else {
-            return mapper.getUser(tel);
+            list = mapper.getUser(tel);
         }
+        return PageInfo.data(list);
     }
+
 
     @Override
     public User addUser(User user) {

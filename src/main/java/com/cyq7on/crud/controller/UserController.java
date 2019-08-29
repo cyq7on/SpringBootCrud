@@ -1,12 +1,12 @@
 package com.cyq7on.crud.controller;
 
+import com.cyq7on.crud.common.vo.PageInfo;
 import com.cyq7on.crud.common.vo.Result;
 import com.cyq7on.crud.entity.User;
 import com.cyq7on.crud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -16,8 +16,10 @@ public class UserController {
     private UserService service;
 
     @GetMapping("/list")
-    public Result<List<User>> getUsers(@RequestParam(value = "tel", required = false) String tel) {
-        return Result.ok(service.getUsers(tel));
+    public Result<PageInfo<User>> getUsers(@RequestParam(value = "tel", required = false) String tel,
+                                           @RequestParam(value = "pageNo", defaultValue = "1") int pageNo,
+                                           @RequestParam(value = "pageSize", defaultValue = "20")int pageSize) {
+        return Result.ok(service.getUsers(tel,pageNo,pageSize));
     }
 
     @PostMapping("/add")
