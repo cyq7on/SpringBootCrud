@@ -19,18 +19,6 @@ public class UserServiceImpl implements UserService {
     private UserMapper mapper;
 
     @Override
-    public int login(String name, String pwd) {
-        Admin admin = mapper.getAdmin(name);
-        if (admin == null) {
-            return 1;
-        }
-        if (admin.getPwd().equals(pwd)) {
-            return 0;
-        }
-        return 2;
-    }
-
-    @Override
     public PageInfo<User> getUsers(String tel, int pageNo, int pageSize) {
         PageHelper.startPage(pageNo, pageSize);
         List<User> list;

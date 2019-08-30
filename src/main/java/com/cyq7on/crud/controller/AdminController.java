@@ -3,6 +3,7 @@ package com.cyq7on.crud.controller;
 import com.cyq7on.crud.common.vo.Result;
 import com.cyq7on.crud.entity.Admin;
 import com.cyq7on.crud.entity.User;
+import com.cyq7on.crud.service.AdminService;
 import com.cyq7on.crud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.util.List;
 public class AdminController {
 
     @Autowired
-    private UserService service;
+    private AdminService service;
 
     @PostMapping("/login")
     public Result<Void> login(@RequestBody Admin admin) {

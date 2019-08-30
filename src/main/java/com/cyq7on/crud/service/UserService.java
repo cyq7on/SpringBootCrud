@@ -6,8 +6,6 @@ import com.cyq7on.crud.entity.User;
 
 public interface UserService {
 
-    int login(String name, String pwd);
-
     PageInfo<User> getUsers(String tel, int pageNo, int pageSize);
 
     User addUser(User user);
