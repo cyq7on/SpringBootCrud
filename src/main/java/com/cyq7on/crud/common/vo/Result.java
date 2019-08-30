@@ -35,10 +35,10 @@ public class Result<T>{
         result.message = message;
         return result;
     }
-    public static <T> Result<T> ok(T value,String message) {
+    public static <T> Result<T> ok(T data,String message) {
         Result<T> result = new Result<>();
         result.errorCode = 0;
-        result.data = value;
+        result.data = data;
         result.message = message;
         return result;
     }
