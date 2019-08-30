@@ -51,7 +51,7 @@ public class UserTokenFilter extends AuthenticatingFilter {
                 servletResponse.setCharacterEncoding("UTF-8");
                 servletResponse.setStatus(HttpStatus.UNAUTHORIZED.value());
                 servletResponse.setContentType("application/json;charset=UTF-8");
-//                servletResponse.setHeader("Access-Control-Allow-Origin","*");
+                servletResponse.setHeader("Access-Control-Allow-Origin","*");
 
                 response.getWriter().print(errorInfo);
                 return false;
@@ -69,7 +69,7 @@ public class UserTokenFilter extends AuthenticatingFilter {
             servletResponse.setCharacterEncoding("UTF-8");
             servletResponse.setStatus(HttpStatus.UNAUTHORIZED.value());
             servletResponse.setContentType("application/json;charset=UTF-8");
-//            servletResponse.setHeader("Access-Control-Allow-Origin","*");
+            servletResponse.setHeader("Access-Control-Allow-Origin","*");
             response.getWriter().print(errorInfo);
         } catch (IOException exception) {
             e.printStackTrace();

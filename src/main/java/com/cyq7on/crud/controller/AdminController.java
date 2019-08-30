@@ -18,7 +18,6 @@ public class AdminController {
 
     @Autowired
     private AdminService service;
-
     @PostMapping("/login")
     public Result<String> login(@RequestBody Admin admin) {
         int i = service.login(admin.getName(), admin.getPwd());
