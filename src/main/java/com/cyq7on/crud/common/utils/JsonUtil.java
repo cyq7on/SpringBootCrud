@@ -26,7 +26,7 @@ import java.util.Map;
 @Slf4j
 public class JsonUtil {
 
-    private static final Logger logger = LoggerFactory.getLogger(JsonUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(JsonUtil.class);
     private static final ObjectMapper useAnnotationMapper = new ObjectMapper();
     private static final ObjectMapper notUseAnnotationMapper = new ObjectMapper();
     private static final JsonFactory factory = new JsonFactory();
